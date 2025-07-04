@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Management Application - Project Proposal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            min-height: 100vh;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 6s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.05); opacity: 0.1; }
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            margin-top: 25px;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .user-types {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 25px;
+        }
+
+        .user-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .user-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .user-card h4 {
+            color: #667eea;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features-list li {
+            background: white;
+            margin-bottom: 8px;
+            padding: 12px 15px;
+            border-radius: 5px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .features-list li:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .features-list li::before {
+            content: '✓';
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .benefits {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 25px;
+        }
+
+        .benefits h4 {
+            color: #d63384;
+            margin-bottom: 15px;
+        }
+
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .tech-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            border-top: 4px solid #667eea;
+        }
+
+        .conclusion {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 768px) {
+            .user-types {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+        }
+
+        @media print {
+            body { background: white; }
+            .container { box-shadow: none; }
+            .download-btn { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Hotel Management Application</h1>
+            <div class="subtitle">Comprehensive Project Proposal</div>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2>1. Project Overview</h2>
+                <p>
+                    The Hotel Management Application is a comprehensive web-based platform designed to revolutionize the hospitality industry in Sri Lanka. This innovative system serves as a digital bridge connecting hotel owners with potential guests, providing a seamless experience for both parties in the hotel booking and management process.
+                </p>
+                <p>
+                    The application addresses the growing need for digitalization in the hospitality sector, offering hotel owners a powerful tool to showcase their properties while providing travelers with an intuitive platform to discover, evaluate, and book accommodations across Sri Lanka.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>2. User Types and Functionality</h2>
+                <p>The application caters to two primary user types, each with distinct features and capabilities:</p>
+                
+                <div class="user-types">
+                    <div class="user-card">
+                        <h4>🏨 Hotel Owners</h4>
+                        <ul class="features-list">
+                            <li>Complete hotel profile creation and management</li>
+                            <li>Real-time room and hall availability updates</li>
+                            <li>Google Maps integration for location display</li>
+                            <li>Comprehensive facility management (pools, gyms, bars, restaurants)</li>
+                            <li>Photo and video gallery management</li>
+                            <li>Pricing and discount management</li>
+                            <li>Booking tracking and analytics</li>
+                            <li>Secure password management with OTP verification</li>
+                            <li>Special offers and event promotion tools</li>
+                            <li>Surrounding attraction highlighting</li>
+                        </ul>
+                    </div>
+
+                    <div class="user-card">
+                        <h4>👥 Hotel Users</h4>
+                        <ul class="features-list">
+                            <li>User registration with email verification</li>
+                            <li>District-based hotel search across Sri Lanka</li>
+                            <li>Interactive Google Maps hotel location viewing</li>
+                            <li>Real-time availability checking</li>
+                            <li>Online booking with flexible payment options</li>
+                            <li>Comprehensive review system (text, images, videos)</li>
+                            <li>Rating and feedback submission</li>
+                            <li>Secure password reset with OTP</li>
+                            <li>Booking purpose specification</li>
+                            <li>Profile management and booking history</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>3. Core Features and Capabilities</h2>
+                
+                <h3>📊 Hotel Management Features</h3>
+                <ul class="features-list">
+                    <li>Dynamic room and hall inventory management</li>
+                    <li>Calendar-based booking system with date range selection</li>
+                    <li>Multi-media content management (photos, videos, virtual tours)</li>
+                    <li>Pricing strategy tools with seasonal adjustments</li>
+                    <li>Customer relationship management integration</li>
+                    <li>Revenue analytics and reporting dashboard</li>
+                </ul>
+
+                <h3>🔍 User Experience Features</h3>
+                <ul class="features-list">
+                    <li>Advanced search filters (location, price, amenities, ratings)</li>
+                    <li>Interactive booking calendar with availability visualization</li>
+                    <li>Secure payment gateway integration</li>
+                    <li>Social proof through verified reviews and ratings</li>
+                    <li>Mobile-responsive design for all devices</li>
+                    <li>Multi-language support (Sinhala, Tamil, English)</li>
+                </ul>
+
+                <h3>🔐 Security and Authentication</h3>
+                <ul class="features-list">
+                    <li>Two-factor authentication via email OTP</li>
+                    <li>Secure password encryption and storage</li>
+                    <li>Role-based access control</li>
+                    <li>Data privacy compliance</li>
+                    <li>Regular security audits and updates</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>4. Technical Architecture</h2>
+                <div class="tech-stack">
+                    <div class="tech-card">
+                        <h4>Frontend</h4>
+                        <p>React.js with responsive design, modern UI/UX components, and cross-browser compatibility</p>
+                    </div>
+                    <div class="tech-card">
+                        <h4>Backend</h4>
+                        <p>Node.js with Express.js framework, RESTful API design, and scalable architecture</p>
+                    </div>
+                    <div class="tech-card">
+                        <h4>Database</h4>
+                        <p>MongoDB for flexible data storage, Redis for caching, and automated backups</p>
+                    </div>
+                    <div class="tech-card">
+                        <h4>Integration</h4>
+                        <p>Google Maps API, payment gateways, email services, and cloud storage solutions</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>5. Benefits and Value Proposition</h2>
+                
+                <div class="benefits">
+                    <h4>For Hotel Owners:</h4>
+                    <ul class="features-list">
+                        <li>Increased online visibility and reach</li>
+                        <li>Streamlined booking management</li>
+                        <li>Real-time inventory control</li>
+                        <li>Enhanced customer communication</li>
+                        <li>Data-driven business insights</li>
+                        <li>Cost-effective marketing platform</li>
+                    </ul>
+                </div>
+
+                <div class="benefits">
+                    <h4>For Hotel Users:</h4>
+                    <ul class="features-list">
+                        <li>Convenient hotel discovery and comparison</li>
+                        <li>Transparent pricing and availability</li>
+                        <li>Secure and flexible booking options</li>
+                        <li>Authentic reviews and ratings</li>
+                        <li>24/7 booking accessibility</li>
+                        <li>Personalized recommendations</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>6. Market Impact and Scope</h2>
+                <p>
+                    This application addresses the evolving needs of Sri Lanka's tourism industry by providing a centralized platform for hotel discovery and booking. With the increasing digitalization of travel planning, this system positions itself as an essential tool for both hospitality businesses and travelers.
+                </p>
+                <p>
+                    The platform supports various accommodation types and booking purposes, from leisure travel and business trips to special events like weddings and celebrations, making it a versatile solution for the diverse Sri Lankan hospitality market.
+                </p>
+            </div>
+
+            <div class="conclusion">
+                <h2>7. Conclusion</h2>
+                <p>
+                    The Hotel Management Application represents a significant advancement in Sri Lanka's hospitality technology landscape. By combining comprehensive management tools for hotel owners with an intuitive booking experience for users, this platform creates a win-win ecosystem that promotes tourism growth and business efficiency.
+                </p>
+                <p>
+                    The application's focus on local market needs, combined with modern technology and user-centric design, positions it as a valuable contribution to Sri Lanka's digital transformation in the hospitality sector.
+                </p>
+                
+                <button class="download-btn" onclick="window.print()">
+                    📄 Download Hotel_Management_Project_Proposal.pdf
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth scrolling and interactive elements
+        document.querySelectorAll('.features-list li').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.backgroundColor = '#f8f9fa';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.backgroundColor = 'white';
+            });
+        });
+
+        // Print functionality
+        function downloadPDF() {
+            window.print();
+        }
+    </script>
+</body>
+</html>

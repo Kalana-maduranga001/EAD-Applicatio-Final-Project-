@@ -1,0 +1,57 @@
+HOTEL Management Application 
+==============================
+  [+]application ask your are user or hotel owner 
+          ->if press user give user information
+          ->if press owner give owner information
+
+   ==========================
+[+]===Hotel Owner Function===
+   ==========================
+
+This application have capability add new Hotel information about hotel 
+->if Existing Information about Hotel can change and modification
+->can add this information hotel owner this web Application save about owner information and give user name and password
+    owner ->can edit his/her hotel information and add new detail about hotel
+->what is hotel about add 
+    [1] Hotel name 
+    [2] Hotel facilitate 
+    [3] already booking or not (Customer can see room and other facility hotel)
+    [3] hotel location using google map facility 
+    [4] Contact number get more information about hotel
+    [5] give hotel summing pool and other hotel facilities like jym , bar , food menu
+    [6] if owner have some problem about this Application
+    [7] get Email address and owner information register owner detail in web application
+    [8] if owner want change password Application give facility change password send otp code via Email  
+    [9] owner want to update and what date and time starting and ending date this Application using
+        -> waht rooms bookig and how many free rooms and what date using for funtion thier hotels halls (get count hotel halls and rooms)
+        -> add this all pictuer and video this hotels hall and rooms  
+    [10] give all facility price (Dayout , Offers , food menues)
+    [11] if users funtion can add discount for booking and food show using pic and video
+    [12] hotel adroud give some infomation ex- beach Side , some Spical palces like Arukku 7 in bandarawela
+
+   ==========================
+[+]===Hotel User Function====
+   ==========================
+  
+ [+] This Application register user using Email and user name
+ [+] give password and username logging to app and edit Information
+ [+] user can online booking Hotel rooms and hotel other facility
+ [+] user can search some district in sri lanka and find relevant hotel in that district 
+ [+] show that hotel location in google map
+ [+] user can see what room and wedding hall is already book and what date that end that owner already want update want
+     date hall and rooms booking. that mean user can see Hotel hall and room , what date that rooms and halls booking and ending booking
+     so user can booking after the that rooms ang halls 
+ [+] online payment method Halfe or full for booking 
+ [+] user can give rate and review about this hotels using pctuers videos and words all method
+ [+] if user want change his password send otp via Email ater that can chage thire password and user name
+ [+] get user what resone for book hotel ex- birth day party , room booking , hotel wedding Facility ,foods and dayOut ect
+
+ 
+
+
+ 
+
+ 
+
+
+
